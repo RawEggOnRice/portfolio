@@ -60,7 +60,7 @@ const AppLayout = (props: PropsWithChildren) => {
                 },
               },
             ]}
-            src={IMAGE_PATH.DUMMY_AVATAR}
+            src={`${PATH.BASE_PATH}${IMAGE_PATH.DUMMY_AVATAR}`}
           />
         </Toolbar>
       </AppBar>
