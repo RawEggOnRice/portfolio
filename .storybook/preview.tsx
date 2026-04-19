@@ -1,8 +1,8 @@
-import type { Preview } from '@storybook/nextjs-vite';
-import { theme } from '../src/theme';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import { initialize, mswLoader } from 'msw-storybook-addon'
+import type { Preview } from '@storybook/nextjs-vite';
+import { initialize, mswLoader } from 'msw-storybook-addon';
+import { theme } from '../src/shared/styles/mui/theme';
 
 initialize({
   onUnhandledRequest: 'bypass',

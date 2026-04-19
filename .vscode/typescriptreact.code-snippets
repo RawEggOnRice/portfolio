@@ -1,0 +1,12 @@
+{
+  "constSplit": {
+    "prefix": "/constSplit",
+    "body": "const {$2} = ${1:props}",
+    "description": "分割代入",
+  },
+  "useState": {
+    "prefix": "/useState",
+    "body": "const [$1, set${1/(.*)/${1:/pascalcase}/}] = useState<${2:type}>(${3:undefined});",
+    "description": "分割代入",
+  },
+}
