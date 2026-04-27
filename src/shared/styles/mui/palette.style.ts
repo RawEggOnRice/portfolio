@@ -13,7 +13,7 @@ export const customPalette: PaletteOptions = {
     primary: grey[800],
   },
   background: {
-    default: grey[100],
+    default: grey[200],
     paper: common.white,
     appMain: yellow[700],
   },

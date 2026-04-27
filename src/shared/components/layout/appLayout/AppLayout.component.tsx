@@ -5,13 +5,14 @@ import { LABELS } from '@/shared/constants/labels.constant';
 import { LAYOUT } from '@/shared/constants/layout.constant';
 import { PATH } from '@/shared/constants/path.constant';
 import { EggOutlined, RiceBowl } from '@mui/icons-material';
-import { AppBar, Paper, Stack, Toolbar, Typography } from '@mui/material';
+import { AppBar, Stack, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren, useState } from 'react';
 import AvatarMenuButton from '../../ui/avatar/AvatarMenuButton.component';
 import AnimatedDrawer from '../../ui/drawer/AnimatedDrawer.component';
 import DrawerMenuList from '../../ui/drawer/DrawerMenuList.component';
+import FlatPaper from '../../ui/paper/FlatPaper.component';
 
 const AppLayout = (props: PropsWithChildren) => {
   const { children } = props;
@@ -101,9 +102,7 @@ const AppLayout = (props: PropsWithChildren) => {
                 }),
             }}
           />
-          <Paper elevation={0} sx={{ flex: 1, height: '100%', p: 2 }}>
-            {children}
-          </Paper>
+          <FlatPaper isDefaultBackground>{children}</FlatPaper>
         </Stack>
       </Stack>
     </Stack>
