@@ -6,11 +6,13 @@ import { useTheme } from '@mui/material/styles';
 import { JSX, MouseEventHandler } from 'react';
 import DrawerToggleButton from './DrawerToggleButton.component';
 
-type DrawerMenuListProps = {
+export type DrawerMenuListProps = {
   /** ドロワーが開いてる状態かどうか */
   isOpen: boolean;
   /** ドロワーの開閉状態を切り替えるクリックハンドラ */
   onToggleButtonClick?: MouseEventHandler<HTMLDivElement>;
+  /** メニューボタンの表示・非表示 */
+  isHide?: boolean;
   /** メニューとして描画するアイテムの配列 */
   items: {
     text: string;
@@ -24,13 +26,13 @@ type DrawerMenuListProps = {
  * @param props {@link DrawerMenuListProps}
  */
 const DrawerMenuList = (props: DrawerMenuListProps) => {
-  const { items, isOpen, onToggleButtonClick } = props;
+  const { items, isOpen, isHide = false, onToggleButtonClick } = props;
 
   const theme = useTheme();
 
   return (
     <List>
-      <DrawerToggleButton isOpen={isOpen} onClick={onToggleButtonClick} />
+      {!isHide && <DrawerToggleButton isOpen={isOpen} onClick={onToggleButtonClick} />}
       {items.map((item, index) => (
         <ListItem key={`${item.text}${index}`} disablePadding>
           <ListItemButton sx={{ justifyContent: 'start', gap: 1 }} onClick={item.onClick}>

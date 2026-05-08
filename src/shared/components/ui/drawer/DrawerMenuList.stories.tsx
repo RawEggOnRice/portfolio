@@ -4,7 +4,11 @@ import { MouseEvent, useState } from 'react';
 import { fn } from 'storybook/test';
 import DrawerMenuList from './DrawerMenuList.component';
 
-/** 先頭に開閉用トグルボタンを配置し、その下に `items` を展開します。 */
+/**
+ * 先頭に開閉用トグルボタンを配置し、その下に `items` を展開します。
+ * ## デフォルト
+ * - isHide: `false`
+ */
 const meta = {
   title: 'Component/UI/Drawer/DrawerMenuList',
   component: DrawerMenuList,
@@ -12,6 +16,13 @@ const meta = {
   argTypes: {
     isOpen: {
       control: false,
+    },
+    isHide: {
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
     },
     items: {
       control: false,

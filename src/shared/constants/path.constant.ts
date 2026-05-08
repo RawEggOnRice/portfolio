@@ -1,6 +1,6 @@
 export const PATH = {
   BASE_PATH: '/portfolio',
-  BASE_PATH_STORYBOOK: '/portfolio/storybook',
+  STORYBOOK: '/storybook',
   HOME: '/',
   PROFILE: '/profile',
 } as const;

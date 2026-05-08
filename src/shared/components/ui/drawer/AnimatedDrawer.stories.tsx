@@ -5,7 +5,12 @@ import { useState } from 'react';
 import AnimatedDrawer from './AnimatedDrawer.component';
 import DrawerMenuList from './DrawerMenuList.component';
 
-/** `MUI` の `Drawer` コンポーネントに `isOpen` プロパティと開閉アニメーションを追加したコンポーネント。 */
+/**
+ * `isOpen` プロパティに応じて幅が滑らかに伸縮するカスタムDrawerコンポーネント
+ * ## デフォルト
+ * - flexShrink: `0`
+ * - whiteSpace: `'nowrap'`
+ */
 const meta = {
   title: 'Component/UI/Drawer/AnimatedDrawer',
   component: AnimatedDrawer,

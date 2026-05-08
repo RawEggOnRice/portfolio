@@ -6,13 +6,16 @@ import {
 import { Drawer, styled } from '@mui/material';
 
 type AnimatedDrawerProps = {
-  /** ドロワーを展開するかどうかの真偽値（trueで展開、falseで折りたたみ） */
+  /** ドロワーを展開するかどうかの真偽値（true: 展開, false: 折りたたみ） */
   isOpen?: boolean;
 };
 
 /**
  * `isOpen` プロパティに応じて幅が滑らかに伸縮するカスタムDrawerコンポーネント
- * @param props MUIの標準 `DrawerProps` に加え、独自プロパティ {@link AnimatedDrawerProps}
+ * @default
+ * - flexShrink: 0
+ * - whiteSpace: 'nowrap'
+ * @param props  {@link AnimatedDrawerProps}
  */
 const AnimatedDrawer = styled(Drawer, {
   shouldForwardProp: (prop) => {

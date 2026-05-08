@@ -19,7 +19,7 @@ export const toggleIconAnimation = (props: ToggleIconAnimationProps): CSSObject 
 
   return {
     opacity: isOpen === showsWhenOpen ? 1 : 0,
-    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+    transform: isOpen ? 'rotate(360deg)' : 'rotate(0deg)',
     transition: theme.transitions.create(['transform', 'opacity'], {
       easing: theme.transitions.easing.sharp,
       duration: isOpen

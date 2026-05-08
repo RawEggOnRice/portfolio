@@ -22,7 +22,7 @@ const hostname = typeof window !== 'undefined' ? window.location.hostname : LOCA
 const src =
   hostname === LOCALHOST_NAME
     ? IMAGE_PATH.DUMMY_AVATAR
-    : `${PATH.BASE_PATH_STORYBOOK}${IMAGE_PATH.DUMMY_AVATAR}`;
+    : `${PATH.BASE_PATH}${PATH.STORYBOOK}${IMAGE_PATH.DUMMY_AVATAR}`;
 
 export const ImageAvatar: Story = {
   args: {

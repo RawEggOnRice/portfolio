@@ -4,6 +4,9 @@ import { MouseEvent, useState } from 'react';
 import { fn } from 'storybook/test';
 import PositionedMenu from './PositionedMenu.component';
 
+/**
+ * アンカー要素を基準にポップアップ表示されるメニューコンポーネント
+ */
 const meta = {
   title: 'Component/UI/Menu/PositionedMenu',
   component: PositionedMenu,

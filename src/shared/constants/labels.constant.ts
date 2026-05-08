@@ -1,8 +1,22 @@
 /** ラベルなどに表示させる文言 */
 export const LABELS = {
-  APP_TITLE: `PORTFOLIO DASHBOARD`,
-  DRAWER_CLOSE: `とじる`,
-  DRAWER_EGG: `たまご`,
-  DRAWER_RICE: `ごはん`,
-  AVATAR_MENU_PROFILE: `プロフィール`,
+  COMMON: {
+    APP_TITLE: `PORTFOLIO`,
+  },
+  HEADER: {
+    AVATAR_MENU_PROFILE: `プロフィール`,
+  },
+  DRAWER: {
+    CLOSE: `とじる`,
+    EGG: `たまご`,
+    RICE: `ごはん`,
+  },
+  CARD: {
+    STORYBOOK_CONTENT: `各コンポーネントのStorybookはここから確認します。`,
+    ACTION: `詳細`,
+  },
+  HOME: {
+    PAPER_CARD_LIST: `カードリスト`,
+    PAPER_DATAGRID: `データグリッド`,
+  },
 } as const;

@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material';
 
 /** プロフィール */
-const Page = () => {
+const ProfilePage = () => {
   return (
     <Stack>
       <Typography variant="h4" component={'h1'}>
@@ -10,4 +10,4 @@ const Page = () => {
     </Stack>
   );
 };
-export default Page;
+export default ProfilePage;

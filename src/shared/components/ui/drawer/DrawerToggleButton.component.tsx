@@ -2,11 +2,10 @@
 
 import { LABELS } from '@/shared/constants/labels.constant';
 import { opacityAnimation } from '@/shared/styles/animation/opacityAnimation.style';
-import { toggleIconAnimation } from '@/shared/styles/animation/toggleIconAnimation.style';
-import { Clear, MenuOpen } from '@mui/icons-material';
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { MouseEventHandler } from 'react';
+import ToggleIcon from '../icon/ToggleIcon.component';
 
 type DrawerToggleButtonProps = {
   /** ドロワーが開いている状態かどうか */
@@ -35,23 +34,10 @@ const DrawerToggleButton = (props: DrawerToggleButtonProps) => {
         onClick={onClick}
       >
         <ListItemIcon sx={{ minWidth: 0, position: 'relative', width: 24, height: 24 }}>
-          <Clear
-            sx={{
-              position: 'absolute',
-              color: theme.palette.text.primary,
-              ...toggleIconAnimation({ isOpen, showsWhenOpen: true, theme }),
-            }}
-          />
-          <MenuOpen
-            sx={{
-              position: 'absolute',
-              color: theme.palette.text.primary,
-              ...toggleIconAnimation({ isOpen, showsWhenOpen: false, theme }),
-            }}
-          />
+          <ToggleIcon isOpen={isOpen} />
         </ListItemIcon>
         <ListItemText
-          primary={LABELS.DRAWER_CLOSE}
+          primary={LABELS.DRAWER.CLOSE}
           sx={{
             m: 0,
             whiteSpace: 'nowrap',

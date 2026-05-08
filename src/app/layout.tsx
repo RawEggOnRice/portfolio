@@ -6,7 +6,10 @@ import type { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
+  title: {
+    template: '%s - Portfolio',
+    default: 'ホーム - Portfolio',
+  },
   description: 'Next.js + MUI',
   icons: {
     icon: `${PATH.BASE_PATH}/favicon.ico`,
@@ -17,8 +20,8 @@ const RootLayout = (props: Readonly<PropsWithChildren>) => {
   const { children } = props;
 
   return (
-    <html lang="ja">
-      <body style={{ height: '100vh', overflow: 'hidden' }}>
+    <html lang="ja" style={{ overflow: 'clip' }}>
+      <body style={{ height: '100vh', overflow: 'clip' }}>
         <AppRouterCacheProvider>
           <AppProvider>
             <AppLayout>{children}</AppLayout>
