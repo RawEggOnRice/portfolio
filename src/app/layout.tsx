@@ -1,6 +1,6 @@
-import AppLayout from '@/shared/components/layout/appLayout/AppLayout.component';
 import { PATH } from '@/shared/constants/path.constant';
 import AppProvider from '@/shared/providers/App.provider';
+import AppLayout from '@/shared/views/AppLayout.view';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 import type { Metadata } from 'next';
 import { PropsWithChildren } from 'react';

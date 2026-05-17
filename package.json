@@ -40,6 +40,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-boundaries": "^6.0.2",
     "eslint-plugin-storybook": "^10.2.19",
     "msw": "^2.12.10",
     "msw-storybook-addon": "^2.0.6",

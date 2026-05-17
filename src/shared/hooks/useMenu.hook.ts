@@ -1,5 +1,3 @@
-'use client';
-
 import { MouseEvent, useState } from 'react';
 
 type UseMenuReturn = {

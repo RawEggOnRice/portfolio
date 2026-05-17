@@ -22,29 +22,88 @@
 
 ## ディレクトリ構成
 
+- `shared` と `features/xxx` 以下のディレクトリ構成は原則として同様の構造とし、 `features` 内部には必要に応じてディレクトリを配置します。
+
+### 参照の許可と禁止
+
+- ドメイン間の密結合や循環参照を防ぐため、以下の依存関係ルールを設けています。
+- 参照が許可されるのは、以下の **【ドメイン制約】と【レイヤー制約】の両方を満たした場合のみ** です。
+
+#### 参照許可条件
+
+**1. ドメイン制約**
+
+- `shared` → `shared`
+- `features/xxx` → `shared`
+- `features/xxx` → `features/xxx` (同一ドメイン内)
+
+**2. レイヤー制約 (単方向依存)**
+
+- **[参照元の優先順位番号] < [参照先の優先順位番号]**
+  - 例: `1. views` から `2. components` への参照は許可
+  - 同一ディレクトリ内のファイル同士の参照は除く
+
+#### 参照禁止条件
+
+- `shared` → `features/xxx` (逆方向依存)
+- `features/xxx` → `features/yyy` (ドメインをまたぐ横方向の依存)
+- **[参照元の優先順位番号] >= [参照先の優先順位番号]**
+  - 例1: `2. components` から `1. views` への参照は禁止 (下位から上位への依存)
+  - 例2: 同位である `7. animations` と `7. contexts` 間の相互参照は禁止
+  - 例3: `features/xxx/components` (レイヤー2) から `shared/views` (レイヤー1) への参照は禁止
+
+### 参照の優先順位
+
+- 数値が小さいほど上位レイヤー、大きいほど下位レイヤーとし、**単方向の依存関係**を強制します。
+- 優先順位
+  1.  `views`
+  2.  `components`
+  3.  `providers`
+  4.  `hooks`
+  5.  `apis`
+  6.  `utils`
+  7.  `animations, contexts`
+  8.  `types`
+  9.  `schemas`
+  10. `themes`
+  11. `constants`
+
 ```
 src
-┣━ app                # Next.js の App Router (ルーティング)
+┣━ app                  # Next.js の App Router (ルーティング)
+┃  ┣━ (home)
+┃  ┣━ profile
+┃  ┗━ etc...
 ┃
-┣━ features           # 各ページ専用の機能群
-┃  ┣━ home            # ホーム画面専用のUIやロジック
+┣━ features             # 各ページ専用の機能群
+┃  ┣━ home              # ホーム画面専用のUIやロジック
+┃  ┃  ┣━ apis
 ┃  ┃  ┣━ components
 ┃  ┃  ┣━ constants
+┃  ┃  ┣━ views
 ┃  ┃  ┗━ etc...
-┃  ┣━ profile         # プロフィール画面専用のUIやロジック
+┃  ┣━ profile           # プロフィール画面専用のUIやロジック
+┃  ┃  ┣━ apis
 ┃  ┃  ┣━ components
 ┃  ┃  ┣━ constants
+┃  ┃  ┣━ views
 ┃  ┃  ┗━ etc...
 ┃  ┗━ etc...
 ┃
-┗━ shared             # アプリ全体で共有する汎用パーツ・ロジック群
-   ┣━ components      # UIやLayoutに使用するコンポーネント
-   ┣━ constants       # ラベルやパスなどの定数
-   ┣━ hooks           # カスタムフック
-   ┣━ providers       # コンテキストなどのプロバイダー
-   ┣━ styles          # コンポーネントのスタイリング
-   ┣━ types           # 型
-   ┣━ utils           # ユーティリティ
+┗━ shared               # アプリ全体で共有する汎用パーツ・ロジック群
+   ┣━ animations        # アニメーション定義
+   ┣━ apis              # API
+   ┣━ components        # カスタムUIコンポーネント
+   ┣━ constants         # ラベルやパスなどの定数
+   ┣━ contexts          # React Context
+   ┣━ hooks             # カスタムフック
+   ┣━ providers         # コンテキストなどのプロバイダー
+   ┣━ schemas           # バリデーションスキーマ
+   ┣━ themes            # MUIテーマ・コンポーネントオーバーライド
+   ┃  ┗━ muiComponents  # コンポーネントオーバーライド
+   ┣━ types             # 共通型定義
+   ┣━ utils             # ユーティリティ関数
+   ┣━ views             # 共通のレイアウト
    ┗━ etc...
 ```
 

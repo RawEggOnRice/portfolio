@@ -11,4 +11,5 @@ type SxArray = Extract<SxProps<Theme>, readonly unknown[]>;
  * <Box sx={[{p: 2}, ...mergeSx(sx)]} />
  */
 export const mergeSx = (sx: SxProps<Theme> | undefined): SxArray =>
+  // MUIのSxPropsの型が複雑なため、TypeScriptの推論が追いきれずasで対応
   (sx ? (Array.isArray(sx) ? sx : [sx]) : []) as SxArray;
