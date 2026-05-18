@@ -1,26 +1,14 @@
 'use client';
 
-import { IMAGE_PATH } from '@/shared/constants/imagePath.constant';
 import { LABELS } from '@/shared/constants/labels.constant';
 import { LAYOUT } from '@/shared/constants/layout.constant';
-import { PATH } from '@/shared/constants/path.constant';
 import { EggOutlined, RiceBowl } from '@mui/icons-material';
-import {
-  AppBar,
-  Drawer,
-  IconButton,
-  Stack,
-  Toolbar,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
-import Link from 'next/link';
+import { Drawer, Stack, Toolbar, useMediaQuery } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren, useState } from 'react';
-import AvatarMenuButton from '../components/avatar/AvatarMenuButton.component';
 import AnimatedDrawer from '../components/drawer/AnimatedDrawer.component';
 import DrawerMenuList, { DrawerMenuListProps } from '../components/drawer/DrawerMenuList.component';
-import ToggleIcon from '../components/icon/ToggleIcon.component';
+import AppHeader from '../components/header/AppHeader.component';
 import FlatPaper from '../components/paper/FlatPaper.component';
 
 const AppLayout = (props: PropsWithChildren) => {
@@ -64,47 +52,7 @@ const AppLayout = (props: PropsWithChildren) => {
   return (
     <Stack bgcolor={(theme) => theme.palette.background.appMain} height={'100%'}>
       {/* ヘッダー */}
-      <AppBar>
-        <Toolbar>
-          {!isSmUp && (
-            <IconButton onClick={handleDrawerToggle}>
-              <ToggleIcon isOpen={mobileOpen} />
-            </IconButton>
-          )}
-          <Stack
-            flex={1}
-            alignItems={isSmUp ? undefined : 'center'}
-            justifyContent={isSmUp ? undefined : 'center'}
-          >
-            <Typography
-              variant={'h5'}
-              component={Link}
-              href={PATH.HOME}
-              fontWeight={700}
-              color={'textPrimary'}
-              noWrap
-              sx={{
-                textDecoration: 'none',
-                userSelect: 'none',
-              }}
-              width={'fit-content'}
-            >
-              {LABELS.COMMON.APP_TITLE}
-            </Typography>
-          </Stack>
-          <AvatarMenuButton
-            items={[
-              {
-                label: LABELS.HEADER.AVATAR_MENU_PROFILE,
-                onClick: () => {
-                  router.push(PATH.PROFILE);
-                },
-              },
-            ]}
-            src={`${PATH.BASE_PATH}${IMAGE_PATH.DUMMY_AVATAR}`}
-          />
-        </Toolbar>
-      </AppBar>
+      <AppHeader isMobile={!isSmUp} isMobileOpen={mobileOpen} onMenuClick={handleDrawerToggle} />
 
       {/* ドロワー */}
       {isSmUp ? (

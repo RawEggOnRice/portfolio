@@ -3,7 +3,7 @@ import { Avatar, ButtonBase } from '@mui/material';
 import { MouseEventHandler } from 'react';
 import PositionedMenu from '../menu/PositionedMenu.component';
 
-type AvatarMenuButtonProps = {
+export type AvatarMenuButtonProps = {
   /** アバタークリック時に表示されるメニューアイテムの配列 */
   items: {
     /** 各メニューの表示ラベル */
@@ -12,6 +12,7 @@ type AvatarMenuButtonProps = {
     onClick?: MouseEventHandler<HTMLLIElement>;
   }[];
   src?: string;
+  ariaLabel?: string;
 };
 
 /**
@@ -19,12 +20,12 @@ type AvatarMenuButtonProps = {
  * @param props {@link AvatarMenuButtonProps}
  */
 const AvatarMenuButton = (props: AvatarMenuButtonProps) => {
-  const { items, src } = props;
+  const { items, src, ariaLabel } = props;
   const { anchorEl, onClose, onOpen } = useMenu();
 
   return (
     <>
-      <ButtonBase sx={{ borderRadius: '50%' }} onClick={onOpen}>
+      <ButtonBase sx={{ borderRadius: '50%' }} onClick={onOpen} aria-label={ariaLabel}>
         <Avatar sx={{ width: 32, height: 32 }} src={src} />
       </ButtonBase>
       <PositionedMenu items={items} anchorEl={anchorEl} onClose={onClose} />

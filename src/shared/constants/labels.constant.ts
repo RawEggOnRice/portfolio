@@ -5,6 +5,10 @@ export const LABELS = {
   },
   HEADER: {
     AVATAR_MENU_PROFILE: `プロフィール`,
+    ARIA: {
+      AVATAR_MENU_BUTTON: `アバターメニューボタン`,
+      TOGGLE_ICON_BUTTON: `メニュー開閉ボタン`,
+    },
   },
   DRAWER: {
     CLOSE: `とじる`,

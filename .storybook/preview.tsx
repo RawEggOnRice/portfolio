@@ -2,7 +2,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import type { Preview } from '@storybook/nextjs-vite';
 import { initialize, mswLoader } from 'msw-storybook-addon';
-import { theme } from '../src/shared/styles/mui/theme.style';
+import { theme } from '../src/shared/themes/theme.theme';
 
 const isGitHubPages = typeof window !== 'undefined' && window.location.hostname.includes('github.io')
 
@@ -27,6 +27,10 @@ const preview: Preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: 'todo'
+    },
+
+    nextjs: {
+      appDirectory: true
     }
   },
   loaders: [mswLoader],
