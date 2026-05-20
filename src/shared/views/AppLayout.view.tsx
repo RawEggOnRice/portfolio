@@ -3,13 +3,13 @@
 import { LABELS } from '@/shared/constants/labels.constant';
 import { LAYOUT } from '@/shared/constants/layout.constant';
 import { EggOutlined, RiceBowl } from '@mui/icons-material';
-import { Drawer, Stack, Toolbar, useMediaQuery } from '@mui/material';
-import { useRouter } from 'next/navigation';
+import { Stack, Toolbar } from '@mui/material';
 import { PropsWithChildren, useState } from 'react';
-import AnimatedDrawer from '../components/drawer/AnimatedDrawer.component';
-import DrawerMenuList, { DrawerMenuListProps } from '../components/drawer/DrawerMenuList.component';
+import AppResponsiveDrawer from '../components/drawer/AppResponsiveDrawer.component';
+import { DrawerMenuListProps } from '../components/drawer/DrawerMenuList.component';
 import AppHeader from '../components/header/AppHeader.component';
 import FlatPaper from '../components/paper/FlatPaper.component';
+import { useResponsive } from '../hooks/useResponsive.hook';
 
 const AppLayout = (props: PropsWithChildren) => {
   const { children } = props;
@@ -22,9 +22,7 @@ const AppLayout = (props: PropsWithChildren) => {
     setMobileOpen((state) => !state);
   };
 
-  const router = useRouter();
-
-  const isSmUp = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+  const { isMobile } = useResponsive();
 
   const handleClickMenu = () => {
     setDrawerWidth((value) => {
@@ -52,42 +50,17 @@ const AppLayout = (props: PropsWithChildren) => {
   return (
     <Stack bgcolor={(theme) => theme.palette.background.appMain} height={'100%'}>
       {/* ヘッダー */}
-      <AppHeader isMobile={!isSmUp} isMobileOpen={mobileOpen} onMenuClick={handleDrawerToggle} />
+      <AppHeader isMobile={isMobile} isMobileOpen={mobileOpen} onMenuClick={handleDrawerToggle} />
 
       {/* ドロワー */}
-      {isSmUp ? (
-        <AnimatedDrawer isOpen={isOpen} variant="permanent">
-          <Toolbar />
-          <DrawerMenuList
-            isOpen={isOpen}
-            onToggleButtonClick={handleClickMenu}
-            items={drawerItems}
-          />
-        </AnimatedDrawer>
-      ) : (
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': {
-              width: LAYOUT.DRAWER_WIDTH_OPEN,
-            },
-          }}
-        >
-          <Toolbar />
-          <DrawerMenuList
-            isOpen={mobileOpen}
-            onToggleButtonClick={handleDrawerToggle}
-            items={drawerItems}
-            isHide
-          />
-        </Drawer>
-      )}
+      <AppResponsiveDrawer
+        drawerItems={drawerItems}
+        handleClickMenu={handleClickMenu}
+        handleDrawerToggle={handleDrawerToggle}
+        isOpen={isOpen}
+        isMobile={isMobile}
+        mobileOpen={mobileOpen}
+      />
 
       {/* コンテンツ */}
       <Stack height={'100vh'}>
@@ -95,12 +68,12 @@ const AppLayout = (props: PropsWithChildren) => {
         <Toolbar />
         <Stack
           direction={'row'}
-          pb={isSmUp ? 1 : 0}
-          pr={isSmUp ? 1 : 0}
+          pb={!isMobile ? 1 : 0}
+          pr={!isMobile ? 1 : 0}
           height={`calc(100vh - ${LAYOUT.HEADER_HEIGHT}px)`}
         >
           {/* ドロワー部分のスペース */}
-          {isSmUp && (
+          {!isMobile && (
             <Stack
               width={drawerWidth}
               flexShrink={0}

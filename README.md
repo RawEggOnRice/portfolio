@@ -15,7 +15,7 @@
 ![Storybook](https://img.shields.io/badge/Storybook-333333?style=for-the-badge&logo=Storybook)
 ![Eslint](https://img.shields.io/badge/Eslint-333333?style=for-the-badge&logo=Eslint)
 ![Prettier](https://img.shields.io/badge/Prettier-333333?style=for-the-badge&logo=Prettier)
-![Vitest](https://img.shields.io/badge/Vitest（予定）-333333?style=for-the-badge&logo=Vitest)
+![Vitest](https://img.shields.io/badge/Vitest-333333?style=for-the-badge&logo=Vitest)
 ![RHF](https://img.shields.io/badge/RHF（予定）-333333?style=for-the-badge&logo=ReactHookForm)
 ![Zod](https://img.shields.io/badge/Zod（予定）-333333?style=for-the-badge&logo=Zod)
 ![MSW](https://img.shields.io/badge/MSW（予定）-333333?style=for-the-badge&logo=MockServiceWorker)
@@ -23,6 +23,7 @@
 ## ディレクトリ構成
 
 - `shared` と `features/xxx` 以下のディレクトリ構成は原則として同様の構造とし、 `features` 内部には必要に応じてディレクトリを配置します。
+- 下記のルールを守れるよう `eslint-plugin-boundaries` を利用し違反時にlintエラーが出るようにしました。
 
 ### 参照の許可と禁止
 
