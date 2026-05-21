@@ -1,7 +1,7 @@
 import { Box, BoxProps, Stack, StackProps, Typography, TypographyProps } from '@mui/material';
 import { PropsWithChildren } from 'react';
 
-type SectionTitleProps = PropsWithChildren & {
+type SectionTitleProps = PropsWithChildren<{
   /**
    * タイトルのサイズ（Typographyのvariantに対応）。 \
    * 左側の装飾バーのサイズ（幅と高さ）もこの値に連動して変化します。
@@ -22,7 +22,7 @@ type SectionTitleProps = PropsWithChildren & {
     /** タイトルテキスト（Typography）への追加プロパティ */
     typography?: TypographyProps;
   };
-};
+}>;
 
 /**
  * 左側にアクセントカラーの装飾バーが付いたセクションタイトルコンポーネント。
