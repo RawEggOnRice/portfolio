@@ -4,8 +4,9 @@
 
 `Next.js (App Router)` と `MUI` を活用し、私自身が実務で使用しているフォルダ構成や技術スタックを参考に作成しているポートフォリオです。 \
 一部気になった技術スタックなどについては学習しつつ作成していく予定です。(例: MSW, Vitest など) \
-**[実際のデモ画面はこちら（稼働中のアプリケーション）](https://raweggonrice.github.io/portfolio/)**
-**[Storybookこちら](https://raweggonrice.github.io/portfolio/storybook/?path=/docs/component-avatar-avatarmenubutton--docs)**
+
+- **[実際のデモ画面はこちら（稼働中のアプリケーション）](https://raweggonrice.github.io/portfolio/)**
+- **[Storybook はこちら](https://raweggonrice.github.io/portfolio/storybook/?path=/docs/component-avatar-avatarmenubutton--docs)**
 
 ## 技術スタック
 
