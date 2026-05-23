@@ -1,14 +1,14 @@
 'use client';
 
+import AppContentWrapper from '@/shared/components/content/AppContentWrapper.component';
+import AppResponsiveDrawer from '@/shared/components/drawer/AppResponsiveDrawer.component';
+import { DrawerMenuListProps } from '@/shared/components/drawer/DrawerMenuList.component';
+import AppHeader from '@/shared/components/header/AppHeader.component';
 import { LABELS } from '@/shared/constants/labels.constant';
+import { useResponsive } from '@/shared/hooks/useResponsive.hook';
 import { EggOutlined, RiceBowl } from '@mui/icons-material';
 import { Stack } from '@mui/material';
 import { PropsWithChildren, useState } from 'react';
-import AppContentWrapper from '../components/content/AppContentWrapper.component';
-import AppResponsiveDrawer from '../components/drawer/AppResponsiveDrawer.component';
-import { DrawerMenuListProps } from '../components/drawer/DrawerMenuList.component';
-import AppHeader from '../components/header/AppHeader.component';
-import { useResponsive } from '../hooks/useResponsive.hook';
 
 /**
  * ドロワーに表示するメニューアイテムの設定リスト。 \

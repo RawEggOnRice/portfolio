@@ -1,10 +1,10 @@
 'use client';
 
 import { widthAnimation } from '@/shared/animations/widthAnimation.animation';
+import FlatPaper from '@/shared/components/paper/FlatPaper.component';
 import { LAYOUT } from '@/shared/constants/layout.constant';
 import { Stack, Toolbar, useTheme } from '@mui/material';
 import { PropsWithChildren } from 'react';
-import FlatPaper from '../paper/FlatPaper.component';
 
 /**
  * AppContentWrapperコンポーネントのプロパティ

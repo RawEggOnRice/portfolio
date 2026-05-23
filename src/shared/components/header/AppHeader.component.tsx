@@ -1,5 +1,9 @@
 'use client';
 
+import AvatarMenuButton, {
+  AvatarMenuButtonProps,
+} from '@/shared/components/avatar/AvatarMenuButton.component';
+import ToggleIcon from '@/shared/components/icon/ToggleIcon.component';
 import { IMAGE_PATH } from '@/shared/constants/imagePath.constant';
 import { LABELS } from '@/shared/constants/labels.constant';
 import { PATH } from '@/shared/constants/path.constant';
@@ -7,8 +11,6 @@ import { AppBar, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { MouseEventHandler } from 'react';
-import AvatarMenuButton, { AvatarMenuButtonProps } from '../avatar/AvatarMenuButton.component';
-import ToggleIcon from '../icon/ToggleIcon.component';
 
 /**
  * アプリケーションヘッダーのプロパティ

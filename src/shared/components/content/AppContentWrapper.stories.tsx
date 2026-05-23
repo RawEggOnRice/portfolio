@@ -1,5 +1,5 @@
+import FlatPaper from '@/shared/components/paper/FlatPaper.component';
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
-import FlatPaper from '../paper/FlatPaper.component';
 import AppContentWrapper from './AppContentWrapper.component';
 
 /**

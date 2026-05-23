@@ -1,7 +1,7 @@
+import PositionedMenu from '@/shared/components/menu/PositionedMenu.component';
 import useMenu from '@/shared/hooks/useMenu.hook';
 import { Avatar, ButtonBase } from '@mui/material';
 import { MouseEventHandler } from 'react';
-import PositionedMenu from '../menu/PositionedMenu.component';
 
 export type AvatarMenuButtonProps = {
   /** アバタークリック時に表示されるメニューアイテムの配列 */

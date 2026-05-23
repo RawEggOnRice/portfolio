@@ -1,11 +1,11 @@
 'use client';
 
 import { opacityAnimation } from '@/shared/animations/opacityAnimation.animation';
+import ToggleIcon from '@/shared/components/icon/ToggleIcon.component';
 import { LABELS } from '@/shared/constants/labels.constant';
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { MouseEventHandler } from 'react';
-import ToggleIcon from '../icon/ToggleIcon.component';
 
 type DrawerToggleButtonProps = {
   /** ドロワーが開いている状態かどうか */
