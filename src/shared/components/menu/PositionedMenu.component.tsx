@@ -1,7 +1,7 @@
 import { Menu, MenuItem } from '@mui/material';
 import { MouseEventHandler } from 'react';
 
-type PositionedMenuProps = {
+export type PositionedMenuProps = {
   /** `MenuItem` に設定するプロパティ配列 */
   items: {
     /** 各 `MenuItem` のラベル */

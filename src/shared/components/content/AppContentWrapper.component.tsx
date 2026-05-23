@@ -6,11 +6,23 @@ import { Stack, Toolbar, useTheme } from '@mui/material';
 import { PropsWithChildren } from 'react';
 import FlatPaper from '../paper/FlatPaper.component';
 
+/**
+ * AppContentWrapperコンポーネントのプロパティ
+ */
 export type AppContentWrapperProps = PropsWithChildren<{
+  /** モバイル画面（一定サイズ未満）かどうかの判定フラグ */
   isMobile: boolean;
+  /** PC用ドロワーの展開状態（true: 展開, false: 格納） */
   isOpen: boolean;
 }>;
 
+/**
+ * アプリケーションのメインコンテンツ領域をラップするレイアウトコンポーネント。
+ * - ドロワーの開閉状態（`isOpen`）や画面サイズ（`isMobile`）に応じて、 \
+ * ヘッダー・ドロワー分の余白を自動計算し、メインコンテンツを適切な位置に配置します。
+ * @param props {@link AppContentWrapperProps}
+ * @returns メインコンテンツ領域のReact要素
+ */
 const AppContentWrapper = (props: AppContentWrapperProps) => {
   const { isMobile, isOpen, children } = props;
 

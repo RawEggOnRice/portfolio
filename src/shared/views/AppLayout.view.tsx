@@ -10,7 +10,10 @@ import { DrawerMenuListProps } from '../components/drawer/DrawerMenuList.compone
 import AppHeader from '../components/header/AppHeader.component';
 import { useResponsive } from '../hooks/useResponsive.hook';
 
-/** ドロワーアイテム設定 */
+/**
+ * ドロワーに表示するメニューアイテムの設定リスト。 \
+ * 再レンダリング時の不要な再生成を防ぐため、コンポーネント外の定数として定義。
+ */
 const DRAWER_ITEMS: DrawerMenuListProps['items'] = [
   {
     icon: <EggOutlined sx={{ color: (theme) => theme.palette.text.primary }} />,
@@ -22,6 +25,13 @@ const DRAWER_ITEMS: DrawerMenuListProps['items'] = [
   },
 ];
 
+/**
+ * アプリケーション全体の基本骨格を構築するルートレイアウトコンポーネント。
+ * - `AppHeader`（ヘッダー）、`AppResponsiveDrawer`（ドロワー）、`AppContentWrapper`（コンテンツ領域）を統合・配置します。
+ * - 画面サイズ（PC/モバイル）に応じた各UIの開閉状態（ステータス）を一元管理します。
+ * @param props {@link PropsWithChildren}
+ * @returns アプリケーションのレイアウト構造（React要素）
+ */
 const AppLayout = (props: PropsWithChildren) => {
   const { children } = props;
 
