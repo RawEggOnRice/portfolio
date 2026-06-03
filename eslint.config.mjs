@@ -8,17 +8,18 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 
 // アーキテクチャ定義 (レイヤー順位)
 const LAYER_ORDER = [
-  ['views'], // 1
-  ['components'], // 2
-  ['providers'], // 3
-  ['hooks'], // 4
-  ['apis'], // 5
-  ['utils'], // 6
-  ['animations', 'contexts'], // 7 (同位: 相互参照禁止)
-  ['types'], // 8
-  ['schemas'], // 9
-  ['themes'], // 10
-  ['constants'], // 11
+  ['views'],
+  ['components'],
+  ['providers'],
+  ['hooks'],
+  ['apis'],
+  ['utils'],
+  ['animations', 'contexts'],
+  ['themes'],
+  ['constants'],
+  ['schemas'],
+  ['errors'],
+  ['types'],
 ];
 
 /** レイヤールールの生成 */

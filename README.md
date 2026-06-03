@@ -66,10 +66,11 @@
   5.  `apis`
   6.  `utils`
   7.  `animations, contexts`
-  8.  `types`
-  9.  `schemas`
-  10. `themes`
-  11. `constants`
+  8.  `themes`
+  9.  `constants`
+  10. `schemas`
+  11. `errors`
+  12. `types`
 
 ```
 src

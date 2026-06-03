@@ -1,4 +1,4 @@
-import HomeLayout from '@/features/home/views/HomeLayout.views';
+import HomeLayout from '@/features/home/views/HomeLayout.view';
 
 /** ホーム */
 const HomePage = () => {

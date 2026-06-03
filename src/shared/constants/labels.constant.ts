@@ -2,6 +2,7 @@
 export const LABELS = {
   COMMON: {
     APP_TITLE: `PORTFOLIO`,
+    SUBMIT_BUTTON: `確定`,
   },
   HEADER: {
     AVATAR_MENU_PROFILE: `プロフィール`,
@@ -15,12 +16,15 @@ export const LABELS = {
     EGG: `たまご`,
     RICE: `ごはん`,
   },
-  CARD: {
-    STORYBOOK_CONTENT: `各コンポーネントのStorybookはここから確認します。`,
-    ACTION: `詳細`,
-  },
   HOME: {
     PAPER_CARD_LIST: `カードリスト`,
+    PAPER_FORM_SAMPLE: `サンプルフォーム`,
+    CARD: {
+      STORYBOOK_CONTENT: `各コンポーネントのStorybookはここから確認します。`,
+      ACTION: `詳細`,
+    },
+  },
+  EGG: {
     PAPER_DATAGRID: `データグリッド`,
   },
 } as const;
