@@ -25,10 +25,7 @@ import { FieldValues, useForm, UseFormProps } from 'react-hook-form';
  * });
  * ```
  */
-export const useDefaultForm = <
-  T extends FieldValues,
-  U extends FieldValues | undefined = undefined,
->(
+export const useDefaultForm = <T extends FieldValues, U extends FieldValues | undefined = T>(
   props?: UseFormProps<T, undefined, U>,
 ) => {
   const {

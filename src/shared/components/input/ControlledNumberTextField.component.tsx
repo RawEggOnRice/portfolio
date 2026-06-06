@@ -49,8 +49,6 @@ export type ControlledNumberTextFieldProps<T extends FieldValues> = {
 
 /**
  * React Hook Form の `control` と MUI の `TextField` を連携させた、共通数値入力コンポーネント。
- *
- * @description
  * - `control` を `Props` として受け取ることで、使用時の型引数 `<T>` の明示を不要にしています。
  * - エラーメッセージと通常の説明文(`helperText`)を両方同時に表示するUIを提供します。
  *
@@ -87,6 +85,7 @@ const ControlledNumberTextField = <T extends FieldValues>(
 
         return (
           <TextField
+            variant="filled"
             {...textField}
             type="number"
             label={label}
