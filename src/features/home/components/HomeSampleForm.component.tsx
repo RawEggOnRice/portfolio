@@ -24,8 +24,7 @@ const HomeSampleForm = () => {
   const { control } = method;
 
   const onSubmit: SubmitHandler<HomeSampleFormOutput> = (data) => {
-    console.log(data);
-    return data;
+    alert(JSON.stringify(data, null, 2));
   };
 
   return (

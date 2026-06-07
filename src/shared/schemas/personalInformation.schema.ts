@@ -54,6 +54,8 @@ const ageSchema = z
       return VALIDATE_MESSAGE.REQUIRED;
     },
   })
+  .nonnegative({ error: VALIDATE_MESSAGE.INVALID_NUMBER_NONNEGATIVE })
+  .int({ error: VALIDATE_MESSAGE.INVALID_NUMBER_INT })
   .nullable()
   .refine((value) => value !== null, { error: VALIDATE_MESSAGE.REQUIRED });
 

@@ -18,8 +18,8 @@
 ![Eslint](https://img.shields.io/badge/Eslint-333333?style=for-the-badge&logo=Eslint)
 ![Prettier](https://img.shields.io/badge/Prettier-333333?style=for-the-badge&logo=Prettier)
 ![Vitest](https://img.shields.io/badge/Vitest-333333?style=for-the-badge&logo=Vitest)
-![RHF](https://img.shields.io/badge/RHF（予定）-333333?style=for-the-badge&logo=ReactHookForm)
-![Zod](https://img.shields.io/badge/Zod（予定）-333333?style=for-the-badge&logo=Zod)
+![RHF](https://img.shields.io/badge/RHF-333333?style=for-the-badge&logo=ReactHookForm)
+![Zod](https://img.shields.io/badge/Zod-333333?style=for-the-badge&logo=Zod)
 ![MSW](https://img.shields.io/badge/MSW（予定）-333333?style=for-the-badge&logo=MockServiceWorker)
 
 ## ディレクトリ構成
