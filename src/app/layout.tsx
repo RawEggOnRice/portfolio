@@ -1,3 +1,4 @@
+import { MswInitializer } from '@/mocks/MswInitializer';
 import { PATH } from '@/shared/constants/path.constant';
 import AppProvider from '@/shared/providers/App.provider';
 import AppLayout from '@/shared/views/AppLayout.view';
@@ -24,6 +25,7 @@ const RootLayout = (props: Readonly<PropsWithChildren>) => {
       <body style={{ height: '100vh', overflow: 'clip' }}>
         <AppRouterCacheProvider>
           <AppProvider>
+            <MswInitializer />
             <AppLayout>{children}</AppLayout>
           </AppProvider>
         </AppRouterCacheProvider>

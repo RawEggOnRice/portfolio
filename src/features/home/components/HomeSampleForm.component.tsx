@@ -1,3 +1,5 @@
+'use client';
+
 import {
   HomeSampleFormInput,
   HomeSampleFormOutput,
@@ -14,7 +16,11 @@ import { SubmitHandler } from 'react-hook-form';
 import { HOME_SAMPLE_FORM } from '../constants/homeSampleForm.constant';
 import { HOME_SAMPLE_FORM_DEFAULT } from '../constants/homeSampleFormDefault.constant';
 
-/** Home画面用のサンプルフォームコンポーネント */
+/**
+ * Home画面用のサンプルフォームコンポーネント。 \
+ * React Hook Form と Zod を用いたバリデーション、および MSW による
+ * モック通信（`/portfolio/api/sample/submit`）の動作検証用サンプルです。
+ */
 const HomeSampleForm = () => {
   const method = useDefaultForm<HomeSampleFormInput, HomeSampleFormOutput>({
     resolver: zodResolver(homeSampleFormSchema),
@@ -23,8 +29,23 @@ const HomeSampleForm = () => {
 
   const { control } = method;
 
-  const onSubmit: SubmitHandler<HomeSampleFormOutput> = (data) => {
-    alert(JSON.stringify(data, null, 2));
+  const onSubmit: SubmitHandler<HomeSampleFormOutput> = async (data) => {
+    try {
+      const response = await fetch('/portfolio/api/sample/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      alert(JSON.stringify(result, null, 2));
+    } catch (error) {
+      console.error('通信エラー', error);
+      alert('エラーが発生しました。');
+    }
   };
 
   return (

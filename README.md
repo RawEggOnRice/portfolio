@@ -20,7 +20,7 @@
 ![Vitest](https://img.shields.io/badge/Vitest-333333?style=for-the-badge&logo=Vitest)
 ![RHF](https://img.shields.io/badge/RHF-333333?style=for-the-badge&logo=ReactHookForm)
 ![Zod](https://img.shields.io/badge/Zod-333333?style=for-the-badge&logo=Zod)
-![MSW](https://img.shields.io/badge/MSW（予定）-333333?style=for-the-badge&logo=MockServiceWorker)
+![MSW](https://img.shields.io/badge/MSW-333333?style=for-the-badge&logo=MockServiceWorker)
 
 ## ディレクトリ構成
 
@@ -94,21 +94,22 @@ src
 ┃  ┃  ┗━ etc...
 ┃  ┗━ etc...
 ┃
-┗━ shared               # アプリ全体で共有する汎用パーツ・ロジック群
-   ┣━ animations        # アニメーション定義
-   ┣━ apis              # API
-   ┣━ components        # カスタムUIコンポーネント
-   ┣━ constants         # ラベルやパスなどの定数
-   ┣━ contexts          # React Context
-   ┣━ hooks             # カスタムフック
-   ┣━ providers         # コンテキストなどのプロバイダー
-   ┣━ schemas           # バリデーションスキーマ
-   ┣━ themes            # MUIテーマ・コンポーネントオーバーライド
-   ┃  ┗━ muiComponents  # コンポーネントオーバーライド
-   ┣━ types             # 共通型定義
-   ┣━ utils             # ユーティリティ関数
-   ┣━ views             # 共通のレイアウト
-   ┗━ etc...
+┣━ shared               # アプリ全体で共有する汎用パーツ・ロジック群
+┃  ┣━ animations        # アニメーション定義
+┃  ┣━ apis              # API
+┃  ┣━ components        # カスタムUIコンポーネント
+┃  ┣━ constants         # ラベルやパスなどの定数
+┃  ┣━ contexts          # React Context
+┃  ┣━ hooks             # カスタムフック
+┃  ┣━ providers         # コンテキストなどのプロバイダー
+┃  ┣━ schemas           # バリデーションスキーマ
+┃  ┣━ themes            # MUIテーマ・コンポーネントオーバーライド
+┃  ┃  ┗━ muiComponents  # コンポーネントオーバーライド
+┃  ┣━ types             # 共通型定義
+┃  ┣━ utils             # ユーティリティ関数
+┃  ┣━ views             # 共通のレイアウト
+┃  ┗━ etc...
+┗━ mocks                #MSWの設定
 ```
 
 ## セットアップ

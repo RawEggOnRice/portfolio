@@ -2,6 +2,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import type { Preview } from '@storybook/nextjs-vite';
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import { handlers } from '../src/mocks/handlers';
 import { theme } from '../src/shared/themes/theme.theme';
 
 const isGitHubPages = typeof window !== 'undefined' && window.location.hostname.includes('github.io')
@@ -31,6 +32,10 @@ const preview: Preview = {
 
     nextjs: {
       appDirectory: true
+    },
+
+    msw: {
+      handlers: handlers
     }
   },
   loaders: [mswLoader],
