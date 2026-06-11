@@ -1,4 +1,5 @@
 import PositionedMenu from '@/shared/components/menu/PositionedMenu.component';
+import { A11Y } from '@/shared/constants/a11y.constant';
 import useMenu from '@/shared/hooks/useMenu.hook';
 import { Avatar, ButtonBase } from '@mui/material';
 import { MouseEventHandler } from 'react';
@@ -20,13 +21,13 @@ export type AvatarMenuButtonProps = {
  * @param props {@link AvatarMenuButtonProps}
  */
 const AvatarMenuButton = (props: AvatarMenuButtonProps) => {
-  const { items, src, ariaLabel } = props;
+  const { items, src, ariaLabel = A11Y.ARIA_LABEL.AVATAR } = props;
   const { anchorEl, onClose, onOpen } = useMenu();
 
   return (
     <>
       <ButtonBase sx={{ borderRadius: '50%' }} onClick={onOpen} aria-label={ariaLabel}>
-        <Avatar sx={{ width: 32, height: 32 }} src={src} />
+        <Avatar sx={{ width: 32, height: 32 }} src={src} alt={src && A11Y.ALT.AVATAR} />
       </ButtonBase>
       <PositionedMenu items={items} anchorEl={anchorEl} onClose={onClose} />
     </>

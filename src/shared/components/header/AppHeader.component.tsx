@@ -4,6 +4,7 @@ import AvatarMenuButton, {
   AvatarMenuButtonProps,
 } from '@/shared/components/avatar/AvatarMenuButton.component';
 import ToggleIcon from '@/shared/components/icon/ToggleIcon.component';
+import { A11Y } from '@/shared/constants/a11y.constant';
 import { IMAGE_PATH } from '@/shared/constants/imagePath.constant';
 import { LABELS } from '@/shared/constants/labels.constant';
 import { PATH } from '@/shared/constants/path.constant';
@@ -41,7 +42,7 @@ export type AppHeaderProps = {
   /** 内部コンポーネントに渡すPropsの拡張スロット */
   slotProps?: {
     /** アバターメニューボタンに渡すProps */
-    avatarMenuButton?: AvatarMenuButtonProps;
+    avatarMenuButton?: Partial<AvatarMenuButtonProps>;
   };
 };
 
@@ -80,7 +81,7 @@ const AppHeader = (props: AppHeaderProps) => {
     <AppBar>
       <Toolbar>
         {isMobile && (
-          <IconButton onClick={onMenuClick} aria-label={LABELS.HEADER.ARIA.TOGGLE_ICON_BUTTON}>
+          <IconButton onClick={onMenuClick} aria-label={A11Y.ARIA_LABEL.HEADER}>
             <ToggleIcon isOpen={isMobileOpen} />
           </IconButton>
         )}
@@ -105,11 +106,7 @@ const AppHeader = (props: AppHeaderProps) => {
             {appTitleLabel}
           </Typography>
         </Stack>
-        <AvatarMenuButton
-          items={items}
-          src={src}
-          ariaLabel={LABELS.HEADER.ARIA.AVATAR_MENU_BUTTON}
-        />
+        <AvatarMenuButton items={items} src={src} />
       </Toolbar>
     </AppBar>
   );

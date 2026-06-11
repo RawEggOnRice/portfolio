@@ -1,3 +1,4 @@
+import { List } from '@mui/material';
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { MouseEvent, useState } from 'react';
 import { fn } from 'storybook/test';
@@ -31,7 +32,11 @@ const meta = {
       args.onClick?.(event);
     };
 
-    return <DrawerToggleButton {...args} isOpen={isOpen} onClick={handleToggle} />;
+    return (
+      <List>
+        <DrawerToggleButton {...args} isOpen={isOpen} onClick={handleToggle} />
+      </List>
+    );
   },
 } satisfies Meta<typeof DrawerToggleButton>;
 

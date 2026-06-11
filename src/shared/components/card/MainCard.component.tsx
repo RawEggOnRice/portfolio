@@ -1,3 +1,4 @@
+import { A11Y } from '@/shared/constants/a11y.constant';
 import { mergeSx } from '@/shared/utils/mergeSx.util';
 import {
   Card,
@@ -123,6 +124,7 @@ const MainCard = (props: MainCardProps) => {
           component={'img'}
           height={80}
           image={image}
+          alt={A11Y.ALT.CARD}
           sx={[
             {
               p: 2,

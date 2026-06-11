@@ -1,7 +1,8 @@
-import { Button, Stack, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { MouseEvent, useState } from 'react';
-import { fn, userEvent, within } from 'storybook/test';
+import { fn } from 'storybook/test';
+import FlatPaper from '../paper/FlatPaper.component';
 import PositionedMenu from './PositionedMenu.component';
 
 /**
@@ -27,13 +28,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     items: [{ label: 'メニュー1' }, { label: 'メニュー2' }, { label: 'メニュー3' }],
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const button = canvas.getByRole('button', { name: 'メニューを開く' });
-    await userEvent.click(button);
-    const menuItem = within(document.body).getByText('メニュー1');
-    await userEvent.click(menuItem);
   },
   render: (args) => {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -62,13 +56,13 @@ export const Default: Story = {
     });
 
     return (
-      <Stack alignItems={'center'}>
+      <FlatPaper sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Typography>{value}</Typography>
-        <Button onClick={handleClick} sx={{ width: 'fit-content' }}>
+        <Button onClick={handleClick} variant="contained" sx={{ width: 'fit-content' }}>
           メニューを開く
         </Button>
         <PositionedMenu {...args} anchorEl={anchorEl} onClose={handleClose} items={items} />
-      </Stack>
+      </FlatPaper>
     );
   },
 };

@@ -1,5 +1,6 @@
 'use client';
 
+import { A11Y } from '@/shared/constants/a11y.constant';
 import { LAYOUT } from '@/shared/constants/layout.constant';
 import { Drawer, Toolbar } from '@mui/material';
 import AnimatedDrawer from './AnimatedDrawer.component';
@@ -53,6 +54,11 @@ const AppResponsiveDrawer = (props: AppResponsiveDrawerProps) => {
       sx={{
         '& .MuiDrawer-paper': {
           width: LAYOUT.DRAWER_WIDTH_OPEN,
+        },
+      }}
+      slotProps={{
+        paper: {
+          'aria-label': A11Y.ARIA_LABEL.DRAWER,
         },
       }}
     >
