@@ -82,6 +82,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} run test -- --run
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          NEXT_PUBLIC_API_MOCKING: 'true'
       - name: Build Storybook
         run: ${{ steps.detect-package-manager.outputs.manager }} run build-storybook -- -o ./out/storybook
 
