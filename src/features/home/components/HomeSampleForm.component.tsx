@@ -13,6 +13,7 @@ import { useDefaultForm } from '@/shared/hooks/useDefaultForm.hook';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Stack } from '@mui/material';
 import { SubmitHandler } from 'react-hook-form';
+import { homePost } from '../apis/home.api';
 import { HOME_SAMPLE_FORM } from '../constants/homeSampleForm.constant';
 import { HOME_SAMPLE_FORM_DEFAULT } from '../constants/homeSampleFormDefault.constant';
 
@@ -30,22 +31,7 @@ const HomeSampleForm = () => {
   const { control } = method;
 
   const onSubmit: SubmitHandler<HomeSampleFormOutput> = async (data) => {
-    try {
-      const response = await fetch('/portfolio/api/sample/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      alert(JSON.stringify(result, null, 2));
-    } catch (error) {
-      console.error('通信エラー', error);
-      alert('エラーが発生しました。');
-    }
+    homePost(data);
   };
 
   return (

@@ -16,7 +16,7 @@ export const MswInitializer = () => {
           serviceWorker: {
             url: '/portfolio/mockServiceWorker.js',
             options: {
-              scope: '/portfolio',
+              scope: '/portfolio/',
             },
           },
         });

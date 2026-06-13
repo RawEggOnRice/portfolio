@@ -1,4 +1,4 @@
-import { homeHandler } from '@/features/home/apis/home.api';
+import { homeHandler } from '@/features/home/apis/mock.api';
 
 /**
  * アプリケーション全体のMSWリクエストハンドラーを集約する配列。
